@@ -9,9 +9,13 @@ use Elementor\Modules\AtomicWidgets\PropTypes\Primitives\String_Prop_Type;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+const LENGTH_UNITS = [ 'px', 'em', 'rem', '%', 'vh', 'vw', 'vmin', 'vmax' ];
+const ANGLE_UNITS = [ 'deg', 'rad', 'grad', 'turn' ];
+const TIME_UNITS = [ 's', 'ms' ];
+const EXTENDED_UNITS = [ 'auto', 'custom' ];
 
 class Size_Prop_Type extends Object_Prop_Type {
-	const SUPPORTED_UNITS = [ 'px', 'em', 'rem', '%', 'vh', 'vw', 'vmin', 'vmax', 'deg', 'rad', 'grad', 'turn', 'custom', 'auto' ];
+	const SUPPORTED_UNITS = [ ...LENGTH_UNITS, ...ANGLE_UNITS, ...TIME_UNITS, ...EXTENDED_UNITS ];
 
 	public static function get_key(): string {
 		return 'size';
