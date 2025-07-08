@@ -13,8 +13,8 @@ type Props = {
 };
 
 export const SelectControl = createControl( ( { options, onChange }: Props ) => {
-	const { value, setValue, disabled, placeholder } = useBoundProp( stringPropTypeUtil );
-
+	const { value, setValue, disabled, placeholder, bind } = useBoundProp( stringPropTypeUtil );
+	console.debug( 'select control', bind, value );
 	const handleChange = ( event: SelectChangeEvent< StringPropValue[ 'value' ] > ) => {
 		const newValue = event.target.value || null;
 

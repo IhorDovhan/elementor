@@ -17,20 +17,21 @@ class Filter_Transformer extends Transformer_Base {
 
 	private function map_to_filter_string( $filter ): string {
 
-		$keys = array_keys( $filter );
+		// $keys = array_keys( $filter );
 
-		if ( isset( $filter['xAxis'] ) && isset( $filter['yAxis'] ) && isset( $filter['blur'] ) && isset( $filter['color'] ) ) {
-			$x_axis = $filter['xAxis'] ?? '0px';
-			$y_axis = $filter['yAxis'] ?? '0px';
-			$blur   = $filter['blur'] ?? '0px';
-			$color  = $filter['color'] ?? 'transparent';
-			return "drop-shadow({$x_axis} {$y_axis} {$blur} {$color})";
-		}
+		// if ( isset( $filter['xAxis'] ) && isset( $filter['yAxis'] ) && isset( $filter['blur'] ) && isset( $filter['color'] ) ) {
+		// 	$x_axis = $filter['xAxis'] ?? '0px';
+		// 	$y_axis = $filter['yAxis'] ?? '0px';
+		// 	$blur   = $filter['blur'] ?? '0px';
+		// 	$color  = $filter['color'] ?? 'transparent';
+		// 	return "drop-shadow({$x_axis} {$y_axis} {$blur} {$color})";
+		// }
 
-		if ( count( $keys ) === 1 ) {
-			return $keys[0] . '(' . $filter[ $keys[0] ] . ')';
-		}
+		// if ( count( $keys ) === 1 ) {
+		// 	return $keys[0] . '(' . $filter[ $keys[0] ] . ')';
+		// }
 
-		return '';
+		// return '';
+		return $filter['func'] . '(' . $filter['args'] . ')';
 	}
 }

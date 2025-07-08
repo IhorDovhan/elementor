@@ -11,17 +11,19 @@ export const filterTransformer = createTransformer( ( filterValues: FilterItemPr
 } );
 
 const mapToFilterFunctionString = ( value: FilterItemPropValue[ 'value' ] ): string => {
-	if ( 'xAxis' in value && 'yAxis' in value && 'blur' in value && 'color' in value ) {
-		const { xAxis, yAxis, blur, color } = value;
-		return `drop-shadow(${ xAxis || '0px' } ${ yAxis || '0px' } ${ blur || '10px' } ${ color || 'transparent' })`;
-	}
+	// if ( 'xAxis' in value && 'yAxis' in value && 'blur' in value && 'color' in value ) {
+	// 	const { xAxis, yAxis, blur, color } = value;
+	// 	return `drop-shadow(${ xAxis || '0px' } ${ yAxis || '0px' } ${ blur || '10px' } ${ color || 'transparent' })`;
+	// }
 
-	// handle single size filter
-	const keys = Object.keys( value );
+	// // handle single size filter
+	// const keys = Object.keys( value );
 
-	if ( keys.length !== 1 ) {
-		return '';
-	}
+	// if ( keys.length !== 1 ) {
+	// 	return '';
+	// }
 
-	return value[ keys[ 0 ] ] ? `${ keys[ 0 ] }(${ value[ keys[ 0 ] ] })` : '';
+	// return value[ keys[ 0 ] ] ? `${ keys[ 0 ] }(${ value[ keys[ 0 ] ] })` : '';
+
+	return `${ value.func }(${ value.args })`;
 };
